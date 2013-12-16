@@ -8,9 +8,4 @@
 #  updated_at :datetime         not null
 #
 
-class Competency < ActiveRecord::Base
-  attr_accessible :name
-
-  has_and_belongs_to_many :volunteers
-  has_and_belongs_to_many :tasks
-end
+require 'spec_helper'

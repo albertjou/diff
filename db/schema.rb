@@ -11,12 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131216023330) do
+ActiveRecord::Schema.define(:version => 20131216045723) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "volunteer_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "bookmarks_non_profits", :id => false, :force => true do |t|
+    t.integer "bookmark_id"
+    t.integer "non_profit_id"
   end
 
   create_table "companies", :force => true do |t|
@@ -38,6 +43,16 @@ ActiveRecord::Schema.define(:version => 20131216023330) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "competencies_tasks", :id => false, :force => true do |t|
+    t.integer "competency_id"
+    t.integer "task_id"
+  end
+
+  create_table "competencies_volunteers", :id => false, :force => true do |t|
+    t.integer "competency_id"
+    t.integer "volunteer_id"
   end
 
   create_table "non_profits", :force => true do |t|
@@ -88,6 +103,11 @@ ActiveRecord::Schema.define(:version => 20131216023330) do
     t.string   "status"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "tasks_volunteers", :id => false, :force => true do |t|
+    t.integer "task_id"
+    t.integer "volunteer_id"
   end
 
   create_table "volunteers", :force => true do |t|

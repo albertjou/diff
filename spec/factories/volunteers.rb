@@ -1,11 +1,11 @@
 # == Schema Information
 #
-# Table name: sponsors
+# Table name: volunteers
 #
 #  id                     :integer          not null, primary key
 #  name                   :string(255)
 #  mobile                 :string(255)
-#  non_profit_id          :integer
+#  company_id             :integer
 #  position_title         :string(255)
 #  profile_picture        :string(255)
 #  created_at             :datetime         not null
@@ -22,17 +22,14 @@
 #  last_sign_in_ip        :string(255)
 #
 
-class Sponsor < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+FactoryGirl.define do
+  factory :volunteer do
+    name 'Test User'
+    email 'example@example.com'
+    mobile '0411222333'
+    password 'Ineedtochangethis'
+    password_confirmation 'Ineedtochangethis'
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :linkedIn_profile, :mobile, :name, :non_profit_id, :position_title, :profile_picture
-
-  belongs_to :non_profit
-  has_many :tasks
+  end
 
 end
