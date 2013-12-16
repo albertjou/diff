@@ -8,6 +8,9 @@ gem 'geocoder'
 gem 'devise'
 gem 'rails_12factor'
 gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
 
 #Possible future features
 # gem 'mailboxer' # Private messaging
@@ -34,20 +37,17 @@ group :development, :test do
   gem 'pry-stack_explorer'
 
   gem 'annotate'
+  gem 'table_print'
 
   gem 'quiet_assets'
   gem 'better_errors'
   # BetterErrors.editor = :sublime if defined? BetterErrors  (initializer)
   # http://localhost:3000/__better_errors (reports last exception for debugging)
 
-  gem 'table_print'
   gem 'binding_of_caller'
-  gem 'meta_request'
-  # Add RailsPanel extension in the Chrome Web Store
-end
+  gem 'meta_request' # Add RailsPanel extension in the Chrome Web Store
 
-group :test do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'capybara'
   gem 'rspec'

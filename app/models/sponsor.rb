@@ -1,4 +1,4 @@
-class Volunteer < ActiveRecord::Base
+class Sponsor < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,5 +6,5 @@ class Volunteer < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :company_id, :mobile, :name, :position_title
+  attr_accessible :linkedIn_profile, :mobile, :name, :non_profit_id, :position_title, :profile_picture
 end
