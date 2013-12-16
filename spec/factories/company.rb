@@ -17,10 +17,8 @@
 #  updated_at        :datetime         not null
 #
 
-require 'spec_helper'
+FactoryGirl.define do
+  factory :company do
 
-describe Company do
-  it { should have_many :volunteers }
-  it { should have_many(:tasks).through(:volunteers) }
-
+  end
 end

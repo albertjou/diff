@@ -8,12 +8,8 @@
 #  updated_at   :datetime         not null
 #
 
-class Bookmark < ActiveRecord::Base
-  attr_accessible :volunteer_id
+FactoryGirl.define do
+  factory :bookmark do
 
-  belongs_to :volunteer
-  has_and_belongs_to_many :non_profits
-
-
-
+  end
 end

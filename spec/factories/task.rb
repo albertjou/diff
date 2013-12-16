@@ -20,16 +20,15 @@
 #  scheduled       :datetime
 #
 
-class Task < ActiveRecord::Base
-  attr_accessible :category, :charity_id, :confidentiality, :description, :non_profit_id, :sponsor_id, :volunteer_size, :status
-
-  belongs_to :sponsor
-  has_and_belongs_to_many :volunteers
-  has_and_belongs_to_many :competencies
-  has_one :charity, :through => :sponsor
-
-
-  # Geocoding
-  geocoded_by :address
-  after_validation :geocode, :if => :address_changed?
+FactoryGirl.define do
+  factory :task do
+    name Faker::Lorem.sentence(1)
+    description Faker::Lorem.paragraphs(3)
+    confidentiality [true, false].sample
+    volunteer_size rand(100)
+    address Faker::AddressAU.full_address
+    status ['seeking', 'filled', 'completed'].sample
+    scheduled Time.at(Time.now + rand*(Time.local(2014, 12, 16).to_f - (Time.now.to_f)))
+    sponsor
+  end
 end

@@ -22,9 +22,8 @@
 #  last_sign_in_ip        :string(255)
 #
 
-require 'spec_helper'
+FactoryGirl.define do
+  factory :sponsor do
 
-describe Sponsor do
-  it { should belong_to :non_profit}
-  it { should have_many :tasks }
+  end
 end

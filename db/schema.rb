@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131216045723) do
+ActiveRecord::Schema.define(:version => 20131216074609) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "volunteer_id"
@@ -103,6 +103,11 @@ ActiveRecord::Schema.define(:version => 20131216045723) do
     t.string   "status"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "address"
+    t.datetime "scheduled"
   end
 
   create_table "tasks_volunteers", :id => false, :force => true do |t|

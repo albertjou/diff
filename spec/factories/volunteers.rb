@@ -24,9 +24,10 @@
 
 FactoryGirl.define do
   factory :volunteer do
-    name 'Test User'
-    email 'example@example.com'
-    mobile '0411222333'
+    name Faker::Name.name
+    email Faker::Internet.email
+    mobile Faker::PhoneNumberAU.phone_number
+    position_title Faker::Company.position
     password 'Ineedtochangethis'
     password_confirmation 'Ineedtochangethis'
 

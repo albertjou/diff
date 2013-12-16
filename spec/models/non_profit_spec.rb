@@ -17,3 +17,9 @@
 #
 
 require 'spec_helper'
+
+describe NonProfit do
+  it { should have_many :sponsors }
+  it { should have_many(:tasks).through(:sponsors) }
+  it { should have_and_belong_to_many :bookmarks }
+end
