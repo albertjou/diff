@@ -11,17 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131216105418) do
+ActiveRecord::Schema.define(:version => 20131216045607) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "volunteer_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  create_table "bookmarks_non_profits", :id => false, :force => true do |t|
-    t.integer "bookmark_id"
-    t.integer "non_profit_id"
+    t.integer  "non_profit_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "companies", :force => true do |t|
@@ -31,7 +27,10 @@ ActiveRecord::Schema.define(:version => 20131216105418) do
     t.string   "linkedIn_profile"
     t.integer  "hours_contributed"
     t.text     "description"
-    t.text     "address"
+    t.string   "street_address"
+    t.string   "secondary_address"
+    t.string   "city"
+    t.string   "postcode"
     t.string   "country"
     t.string   "website"
     t.string   "phone"
@@ -61,12 +60,15 @@ ActiveRecord::Schema.define(:version => 20131216105418) do
     t.string   "sector"
     t.string   "website"
     t.string   "phone"
-    t.text     "address"
+    t.string   "street_address"
+    t.string   "secondary_address"
+    t.string   "city"
+    t.string   "postcode"
     t.string   "country"
     t.string   "name"
     t.string   "linkedIn_profile"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "sponsors", :force => true do |t|
@@ -96,17 +98,20 @@ ActiveRecord::Schema.define(:version => 20131216105418) do
     t.text     "description"
     t.string   "category"
     t.boolean  "confidentiality"
-    t.integer  "non_profit_id"
     t.integer  "sponsor_id"
     t.integer  "volunteer_size"
     t.string   "status"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
     t.string   "name"
     t.float    "latitude"
     t.float    "longitude"
-    t.text     "address"
+    t.string   "street_address"
+    t.string   "secondary_address"
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "country"
     t.datetime "scheduled"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "tasks_volunteers", :id => false, :force => true do |t|

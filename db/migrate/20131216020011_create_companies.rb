@@ -7,7 +7,10 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :linkedIn_profile
       t.integer :hours_contributed
       t.text :description
-      t.text :address
+      t.string :street_address
+      t.string :secondary_address
+      t.string :city
+      t.string :postcode
       t.string :country
       t.string :website
       t.string :phone

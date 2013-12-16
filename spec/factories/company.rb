@@ -25,6 +25,6 @@ FactoryGirl.define do
     country "Australia"
     website Faker::Internet.domain_name
     phone Faker::PhoneNumberAU.phone_number
-    volunteer build_list(:volunteer, 100)
+    volunteer
   end
 end

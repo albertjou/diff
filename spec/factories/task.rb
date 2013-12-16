@@ -28,8 +28,11 @@ FactoryGirl.define do
     name Faker::Lorem.sentence(1)
     description Faker::Lorem.paragraphs(3)
     confidentiality [true, false].sample
-    volunteer_size rand(100)
-    address Faker::AddressAU.full_address
+    volunteer_size (1..100).to_a.sample
+    street_address Faker::Address.street_address
+    city Faker::AddressAU.city
+    postcode Faker::AddressAU.zip_code
+    country "Australia"
     status ['seeking', 'filled', 'completed'].sample
     scheduled { startdate - rand(500) }
     sponsor
