@@ -3,7 +3,6 @@
 # Table name: tasks
 #
 #  id              :integer          not null, primary key
-#  charity_id      :string(255)
 #  description     :text
 #  category        :string(255)
 #  confidentiality :boolean
@@ -21,7 +20,7 @@
 #
 
 class Task < ActiveRecord::Base
-  attr_accessible :category, :charity_id, :confidentiality, :description, :non_profit_id, :sponsor_id, :volunteer_size, :status
+  attr_accessible :category, :confidentiality, :description, :non_profit_id, :sponsor_id, :volunteer_size, :status
 
   belongs_to :sponsor
   has_and_belongs_to_many :volunteers

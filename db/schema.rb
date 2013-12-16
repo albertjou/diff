@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131216074609) do
+ActiveRecord::Schema.define(:version => 20131216105418) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "volunteer_id"
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(:version => 20131216074609) do
   add_index "sponsors", ["reset_password_token"], :name => "index_sponsors_on_reset_password_token", :unique => true
 
   create_table "tasks", :force => true do |t|
-    t.string   "charity_id"
     t.text     "description"
     t.string   "category"
     t.boolean  "confidentiality"

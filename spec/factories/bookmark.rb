@@ -10,6 +10,7 @@
 
 FactoryGirl.define do
   factory :bookmark do
-
+    volunteer build_list(:volunteer, 30)
+    non_profits build_list(:non_profits, 30)
   end
 end

@@ -3,7 +3,6 @@
 # Table name: tasks
 #
 #  id              :integer          not null, primary key
-#  charity_id      :string(255)
 #  description     :text
 #  category        :string(255)
 #  confidentiality :boolean

@@ -26,6 +26,9 @@ FactoryGirl.define do
   factory :volunteer do
     name Faker::Name.name
     email Faker::Internet.email
+    company
+    tasks
+    competencies
     mobile Faker::PhoneNumberAU.phone_number
     position_title Faker::Company.position
     password 'Ineedtochangethis'

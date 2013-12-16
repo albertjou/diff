@@ -24,6 +24,14 @@
 
 FactoryGirl.define do
   factory :sponsor do
+    name Faker::Name.name
+    email Faker::Internet.email
+    non_profit
+    tasks
+    mobile Faker::PhoneNumberAU.phone_number
+    position_title Faker::Company.position
+    password 'Ineedtochangethis'
+    password_confirmation 'Ineedtochangethis'
 
   end
 end

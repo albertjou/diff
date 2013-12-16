@@ -20,7 +20,10 @@
 #  scheduled       :datetime
 #
 
+require 'date'
+
 FactoryGirl.define do
+  startdate = Date.today + 100
   factory :task do
     name Faker::Lorem.sentence(1)
     description Faker::Lorem.paragraphs(3)
@@ -28,7 +31,7 @@ FactoryGirl.define do
     volunteer_size rand(100)
     address Faker::AddressAU.full_address
     status ['seeking', 'filled', 'completed'].sample
-    scheduled Time.at(Time.now + rand*(Time.local(2014, 12, 16).to_f - (Time.now.to_f)))
+    scheduled { startdate - rand(500) }
     sponsor
   end
 end
