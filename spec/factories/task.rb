@@ -24,17 +24,17 @@ require 'date'
 
 FactoryGirl.define do
   startdate = Date.today + 100
-  factory :task do
-    name Faker::Lorem.sentence(1)
-    description Faker::Lorem.paragraphs(3)
-    confidentiality [true, false].sample
-    volunteer_size (1..100).to_a.sample
-    street_address Faker::Address.street_address
-    city Faker::AddressAU.city
-    postcode Faker::AddressAU.zip_code
-    country "Australia"
-    status ['seeking', 'filled', 'completed'].sample
-    scheduled { startdate - rand(500) }
-    sponsor
+  factory :task do |f|
+    f.name { Faker::Lorem.sentence(1) }
+    f.description { Faker::Lorem.paragraphs(3) }
+    f.confidentiality { [true, false].sample }
+    f.volunteer_size { (1..100).to_a.sample }
+    f.street_address { Faker::Address.street_address }
+    f.city { Faker::AddressAU.city }
+    f.postcode { Faker::AddressAU.zip_code }
+    f.country { "Australia" }
+    f.status { ['seeking', 'filled', 'completed'].sample }
+    f.scheduled { startdate - rand(500) }
+    competencies { Competency.all.sample(4) }
   end
 end

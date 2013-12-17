@@ -23,15 +23,15 @@
 #
 
 FactoryGirl.define do
-  factory :sponsor do
-    name Faker::Name.name
-    email Faker::Internet.email
-    non_profit
-    tasks
-    mobile Faker::PhoneNumberAU.phone_number
-    position_title Faker::Company.position
-    password 'Ineedtochangethis'
-    password_confirmation 'Ineedtochangethis'
+  factory :sponsor do |f|
+    f.name { Faker::Name.name }
+    f.email { Faker::Internet.email }
+    f.non_profit { FactoryGirl.create :non_profit }
+    f.tasks { FactoryGirl.create_list(:task, 5) }
+    f.mobile { Faker::PhoneNumberAU.phone_number }
+    f.position_title { Faker::Company.position }
+    f.password 'Ineedtochangethis'
+    f.password_confirmation 'Ineedtochangethis'
 
   end
 end

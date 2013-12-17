@@ -9,7 +9,8 @@
 #
 
 FactoryGirl.define do
-  factory :bookmark do
-
+  factory :bookmark do |f|
+    f.volunteer { Volunteer.all.sample }
+    f.non_profit { NonProfit.all.sample }
   end
 end

@@ -23,16 +23,16 @@
 #
 
 FactoryGirl.define do
-  factory :volunteer do
-    name Faker::Name.name
-    email Faker::Internet.email
-    company
-    tasks
-    competencies
-    mobile Faker::PhoneNumberAU.phone_number
-    position_title Faker::Company.position
-    password 'Ineedtochangethis'
-    password_confirmation 'Ineedtochangethis'
+  factory :volunteer do |f|
+    f.name { Faker::Name.name }
+    f.email { Faker::Internet.email }
+    f.company { FactoryGirl.create :company }
+    f.tasks { Task.all.sample(4) }
+    f.competencies { Competency.all.sample(5) }
+    f.mobile { Faker::PhoneNumberAU.phone_number }
+    f.position_title { Faker::Company.position }
+    f.password 'Ineedtochangethis'
+    f.password_confirmation 'Ineedtochangethis'
 
   end
 

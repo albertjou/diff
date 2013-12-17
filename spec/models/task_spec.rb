@@ -28,5 +28,5 @@ describe Task do
   it { should belong_to :sponsor }
   it { should have_and_belong_to_many :volunteers }
   it { should have_and_belong_to_many :competencies }
-  it { should have_one(:charity).through(:sponsor) }
+  it { should have_one(:non_profit).through(:sponsor) }
 end

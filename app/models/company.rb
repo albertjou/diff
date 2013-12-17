@@ -21,7 +21,7 @@
 #
 
 class Company < ActiveRecord::Base
-  attr_accessible :address, :country, :description, :hours_contributed, :linkedIn_profile, :logo, :name, :phone, :sector, :website
+  attr_accessible :stree_address, :secondary_address, :city, :postcode, :country, :description, :hours_contributed, :linkedIn_profile, :logo, :name, :phone, :sector, :website
 
   has_many :volunteers
   has_many :tasks, :through => :volunteers

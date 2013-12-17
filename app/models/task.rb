@@ -32,6 +32,13 @@ class Task < ActiveRecord::Base
 
 
   # Geocoding
-  geocoded_by :address
-  after_validation :geocode, :if => :address_changed?
+  geocoded_by :street_address
+  after_validation :geocode, :if => :street_address_changed?
+
+  def complete_address
+    "#{self.street_address}
+    #{self.city} #{self.postcode}
+    #{self.country}"
+  end
+
 end
