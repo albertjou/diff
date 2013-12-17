@@ -6,4 +6,12 @@ class PagesController < ApplicationController
     @companies = Company.all
   end
 
+  def sign_in
+
+  end
+
+  def sign_up
+
+  end
+
 end

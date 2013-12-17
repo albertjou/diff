@@ -34,4 +34,8 @@ Diff::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Twitter Keys
+  TWITTER_KEY = '24GINKggGGQdAKC1mBr3cw'
+  TWITTER_SECRET = 'ckf7I98n6sDCLYJ7rRKBjrWhyKytW2LaBvBYIvP6Fw'
 end

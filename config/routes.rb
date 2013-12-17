@@ -5,4 +5,7 @@ Diff::Application.routes.draw do
 
   root :to => "pages#home"
   resources :tasks, except: :destroy
+
+  get '/sign_up' => 'pages#sign_up', :as => "sign_up"
+  get '/sign_in' => 'pages#sign_in', :as => 'sign_in'
 end

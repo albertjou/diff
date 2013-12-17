@@ -64,4 +64,9 @@ Diff::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # Twitter Keys
+  TWITTER_KEY = '24GINKggGGQdAKC1mBr3cw'
+  TWITTER_SECRET = 'ckf7I98n6sDCLYJ7rRKBjrWhyKytW2LaBvBYIvP6Fw'
+
 end
