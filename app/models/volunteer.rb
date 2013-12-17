@@ -36,6 +36,8 @@ class Volunteer < ActiveRecord::Base
   has_and_belongs_to_many :tasks
   has_many :bookmarks, :dependent => :destroy
   has_and_belongs_to_many :competencies
+  has_many :authentications
 
   validates :name, :email, :position_title, :presence => true
+
 end
