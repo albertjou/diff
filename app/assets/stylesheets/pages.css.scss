@@ -1,3 +1,46 @@
 .spacer {
   padding-top: 60px;
 }
+
+.business-logo {
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+}
+
+.view-window {
+  height: 900px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overflow-scrolling: touch;
+
+}
+.main-heading {
+  background-color: transparent;
+
+}
+
+.create-new {
+  position: absolute !important;
+  height: 60px;
+  width: 60px;
+  padding: 0 !important;
+  i {
+    font-size: 100px;
+  }
+}
+
+.non-profit {
+  bottom: -30px;
+  right: 93px;
+}
+
+.corporate {
+  top: 1318px;
+  left: 900px;
+}
+
+.task {
+  top: 1318px;
+  right: 1300px;
+}

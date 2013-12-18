@@ -12,6 +12,7 @@ gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 gem 'omniauth-facebook'
+gem 'formtastic'
 
 #Possible future features
 # gem 'mailboxer' # Private messaging
