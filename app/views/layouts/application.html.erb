@@ -20,12 +20,14 @@
           <%= link_to "DIFF", root_path, :class => "navbar-brand brand-logo" %>
         </div><!-- navbar-header -->
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <% if volunteer_signed_in? || sponsor_signed_in? %>
-              <li>Welcome, <%= current_volunteer.name || current_sponsor.name %></li>
+          <ul class="nav navbar-nav navbar-right nav-pills">
+            <% if user_signed_in? %>
+              <li>Welcome, <%= current_user.name %></li>
+              <li><%= button_to('Edit User', edit_user_registration_path, :class => "btn btn-success", :method => :get) %></li>
+              <li><%= button_to('Logout', destroy_user_session_path, :confirm => 'Are you sure?', :class => "btn btn-info", :method => :delete) %></li>
             <% else %>
-            <li><%= button_to "Sign Up", :action => "sign_up", :controller => "/pages", :method => :get ,:class => "btn btn-success" %></li>
-            <li><%= button_to "Sign In", :action => "sign_in", :controller => "/pages", :method => :get ,:class => "btn btn-info" %></li>
+            <li><%= button_to "Sign Up", authentications_path, :class => "btn btn-success", :method => :get %></li>
+            <li><%= button_to "Sign In", new_user_session_path , :class => "btn btn-info", :method => :get %></li>
           <% end %>
           </ul><!-- nav navbar-nav-right -->
         </div><!-- navbar-collapse collapse -->
@@ -39,11 +41,12 @@
         <%= yield %>
       </div>
     </div><!-- /container -->
-
+    <div class="container">
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>© 2013 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
       </footer>
+    </div>
     <%= javascript_include_tag "application" %>
     <!-- Google Analytics -->
     <script>

@@ -24,9 +24,17 @@
 #  non_profit_id          :integer
 #
 
-require 'spec_helper'
+# # Read about factories at https://github.com/thoughtbot/factory_girl
 
-describe Sponsor do
-  it { should belong_to :non_profit}
-  it { should have_many :tasks }
-end
+# FactoryGirl.define do
+#   factory :user do |f|
+#     f.name { Faker::Name.name }
+#     f.email { Faker::Internet.email }
+#     f.tasks { Task.all.sample(4) }
+#     f.competencies { Competency.all.sample(5) }
+#     f.mobile { Faker::PhoneNumberAU.phone_number }
+#     f.position_title { Faker::Company.position }
+#     f.password 'Ineedtochangethis'
+#     f.password_confirmation 'Ineedtochangethis'
+#   end
+# end

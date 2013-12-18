@@ -1,6 +1,6 @@
-class AddDeviseToVolunteers < ActiveRecord::Migration
-  def self.up
-    change_table(:volunteers) do |t|
+class DeviseCreateUsers < ActiveRecord::Migration
+  def change
+    create_table(:users) do |t|
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
@@ -19,7 +19,7 @@ class AddDeviseToVolunteers < ActiveRecord::Migration
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
 
-      ## Confirmable <-- Feature to be implemented at a later stage
+      ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
       # t.datetime :confirmation_sent_at
@@ -31,19 +31,21 @@ class AddDeviseToVolunteers < ActiveRecord::Migration
       # t.datetime :locked_at
 
 
-      # Uncomment below if timestamps were not included in your original model.
-      # t.timestamps
+      t.timestamps
+
+      t.string :type
+      t.string :name
+      t.string :mobile
+      t.string :position_title
+      t.string :profile_picture
+      t.integer :company_id
+      t.integer :non_profit_id
+
     end
 
-    add_index :volunteers, :email,                :unique => true
-    add_index :volunteers, :reset_password_token, :unique => true
-    # add_index :volunteers, :confirmation_token,   :unique => true
-    # add_index :volunteers, :unlock_token,         :unique => true
-  end
-
-  def self.down
-    # By default, we don't want to make any assumption about how to roll back a migration when your
-    # model already existed. Please edit below which fields you would like to remove in this migration.
-    raise ActiveRecord::IrreversibleMigration
+    add_index :users, :email,                :unique => true
+    add_index :users, :reset_password_token, :unique => true
+    # add_index :users, :confirmation_token,   :unique => true
+    # add_index :users, :unlock_token,         :unique => true
   end
 end

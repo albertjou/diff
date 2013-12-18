@@ -26,7 +26,6 @@
 
 require 'spec_helper'
 
-describe Sponsor do
-  it { should belong_to :non_profit}
-  it { should have_many :tasks }
+describe User do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

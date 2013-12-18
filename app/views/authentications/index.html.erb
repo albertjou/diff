@@ -1,0 +1,77 @@
+
+<div class="omnis col-md-4 see-me">
+  <% if @authentications %>
+    <% unless @authentications.empty? %>
+      <h2>You can sign in using:</h2>
+      <div class="authentications">
+      <% for authentication in @authentications %>
+        <div class="authentication">
+          <i class="fa fa-<%= authentication.provider %>-square fa-3x"></i>
+        <div class="provider">
+          <%= authentication.provider.titleize %>
+        </div>
+        <div class="uid">
+          <%= authentication.uid %>
+        </div>
+        <%= link_to "X", authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "remove" %>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+    <div class="row">
+      <h2 class="text-center">Add another service to sign in with:</h2>
+    </div>
+  <% else %>
+  <div class="row">
+    <h1 class="text-center">Sign in through:</h2>
+  </div>
+  <% end %>
+  <div class="row linkedin">
+    <a href="/auth/twitter" class="auth_provider">
+      <div class="col-xs-3 col-xs-offset-1">
+        <p class="text-center"><i class="fa fa-linkedin-square fa-5x"></i></p>
+      </div>
+      <div class="col-xs-8">
+        <h2 class="auth-companies text-left">LinkedIn</h2>
+      </div>
+    </a>
+  </div><!-- row -->
+    <div class="row github">
+    <a href="/auth/twitter" class="auth_provider">
+      <div class="col-xs-3 col-xs-offset-1">
+        <p class="text-center"><i class="fa fa-github-square fa-5x"></i></p>
+      </div>
+      <div class="col-xs-8">
+        <h2 class="auth-companies text-left">Github</h2>
+      </div>
+    </a>
+  </div><!-- row -->
+    <div class="row twitter">
+    <a href="/auth/twitter" class="auth_provider">
+      <div class="col-xs-3 col-xs-offset-1">
+        <p class="text-center"><i class="fa fa-twitter-square fa-5x"></i></p>
+      </div>
+      <div class="col-xs-8">
+        <h2 class="auth-companies text-left">Twitter</h2>
+      </div>
+    </a>
+  </div><!-- row -->
+  <div class="row facebook">
+    <a href="/auth/twitter" class="auth_provider">
+      <div class="col-xs-3 col-xs-offset-1">
+        <p class="text-center"><i class="fa fa-facebook-square fa-5x"></i></p>
+      </div>
+      <div class="col-xs-8">
+        <h2 class="auth-companies text-left">Facebook</h2>
+      </div>
+    </a>
+  </div><!-- row -->
+</div><!-- omni 4 -->
+
+<% unless user_signed_in? %>
+<p>
+  <strong>Don't use these services?</strong>
+  <%= link_to "Sign up", new_user_registration_path %> or
+  <%= link_to "sign in", new_user_session_path %> with a password.
+</p>
+<% end %>
