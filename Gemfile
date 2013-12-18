@@ -13,6 +13,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 gem 'omniauth-facebook'
 gem 'formtastic'
+gem 'country_select'
 
 #Possible future features
 # gem 'mailboxer' # Private messaging

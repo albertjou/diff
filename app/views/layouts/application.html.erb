@@ -19,15 +19,20 @@
           </button>
           <%= link_to "DIFF", root_path, :class => "navbar-brand brand-logo" %>
         </div><!-- navbar-header -->
+        <div class="text-center user-type">
+          <%= current_user.try(:type) %>
+        </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right nav-pills">
+          <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li>Welcome, <%= current_user.name %></li>
               <li><%= button_to('Edit User', edit_user_registration_path, :class => "btn btn-success", :method => :get) %></li>
+              <li class="divider"></li>
               <li><%= button_to('Logout', destroy_user_session_path, :confirm => 'Are you sure?', :class => "btn btn-info", :method => :delete) %></li>
             <% else %>
-            <li><%= button_to "Sign Up", authentications_path, :class => "btn btn-success", :method => :get %></li>
-            <li><%= button_to "Sign In", new_user_session_path , :class => "btn btn-info", :method => :get %></li>
+              <li><%= button_to "Sign Up", authentications_path, :class => "btn btn-success", :method => :get %></li>
+              <li class="divider"></li>
+              <li><%= button_to "Sign In", new_user_session_path , :class => "btn btn-info", :method => :get %></li>
           <% end %>
           </ul><!-- nav navbar-nav-right -->
         </div><!-- navbar-collapse collapse -->

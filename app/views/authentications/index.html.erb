@@ -1,85 +1,10 @@
 <div class="omnis col-md-4 see-me">
-  <% if @authentications %>
-    <% unless @authentications.empty? %>
-      <h1 class="text-center">Sign in using:</h1>
-      <% for authentication in @authentications %>
-        <div class="row authenticated">
-          <div class="col-xs-10 col-xs-offset-1 text-center">
-            <div class="row well well-lg">
-
-            <div class="col-xs-3 col-xs-offset-1">
-              <p class="text-center"><i class="fa fa-<%= authentication.provider %>-square fa-5x"></i></p>
-            </div>
-            <div class="col-xs-8">
-              <%= link_to raw("<h2 class='auth-companies text-left'>#{authentication.provider.titleize}</h2>"), authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete %>
-            </div>
-            </div>
-          </div>
-        </div><!-- row -->
-      <% end %>
-    <% end %>
-    <div class="row">
-      <h1 class="text-center">Add another service:</h1>
-    </div>
-  <% else %>
-  <div class="row">
-    <h1 class="text-center">Sign in through:</h2>
-  </div>
-  <% end %>
-  <% if !@authentications.any? {|x| x.provider == "linkedin" } %>
-  <div class="row linkedin">
-    <a href="/auth/twitter" class="auth_provider">
-      <div class="col-xs-3 col-xs-offset-1">
-        <p class="text-center"><i class="fa fa-linkedin-square fa-5x"></i></p>
-      </div>
-      <div class="col-xs-8">
-        <h2 class="auth-companies text-left">LinkedIn</h2>
-      </div>
-    </a>
-  </div><!-- row -->
-  <% end %>
-  <% if !@authentications.any? {|x| x.provider == "github" } %>
-    <div class="row github">
-    <a href="/auth/twitter" class="auth_provider">
-      <div class="col-xs-3 col-xs-offset-1">
-        <p class="text-center"><i class="fa fa-github-square fa-5x"></i></p>
-      </div>
-      <div class="col-xs-8">
-        <h2 class="auth-companies text-left">Github</h2>
-      </div>
-    </a>
-  </div><!-- row -->
-  <% end %>
-  <% if !@authentications.any? {|x| x.provider == "twitter" } %>
-    <div class="row twitter">
-    <a href="/auth/twitter" class="auth_provider">
-      <div class="col-xs-3 col-xs-offset-1">
-        <p class="text-center"><i class="fa fa-twitter-square fa-5x"></i></p>
-      </div>
-      <div class="col-xs-8">
-        <h2 class="auth-companies text-left">Twitter</h2>
-      </div>
-    </a>
-  </div><!-- row -->
-  <% end %>
-  <% if !@authentications.any? {|x| x.provider == "facebook" } %>
-  <div class="row facebook">
-    <a href="/auth/twitter" class="auth_provider">
-      <div class="col-xs-3 col-xs-offset-1">
-        <p class="text-center"><i class="fa fa-facebook-square fa-5x"></i></p>
-      </div>
-      <div class="col-xs-8">
-        <h2 class="auth-companies text-left">Facebook</h2>
-      </div>
-    </a>
-  </div><!-- row -->
-  <% end %>
+  <%= render partial: 'leftbar' %>
 </div><!-- omni 4 -->
 
 <% unless user_signed_in? %>
-<p>
-  <strong>Don't use these services?</strong>
-  <%= link_to "Sign up", new_user_registration_path %> or
-  <%= link_to "sign in", new_user_session_path %> with a password.
-</p>
+  <div class="col-md-8 sign-up">
+  <h1 class="text-center">Sign Up</h1>
+  <%= render 'registrations/new' %>
+</div>
 <% end %>

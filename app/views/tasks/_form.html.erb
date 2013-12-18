@@ -1,0 +1,13 @@
+<%= semantic_form_for @task do |f| %>
+  <%= f.input :name, :required => true%>
+  <%= f.input :category, :as => :select, :collection => ["Websites IT & Software", "Mobile", "Writing", "Design", "Data Entry", "Product Sourcing & Manufacturing", "Sales & Marketing", "Accounting", "Legal", "Custom"], :required => true %>
+  <%= f.input :volunteer_size %>
+  <%= f.input :secondary_address %>
+  <%= f.input :street_address, :required => true %>
+  <%= f.input :city, :required => true %>
+  <%= f.input :country, :required => true %>
+  <%= f.input :scheduled, :required => true, :as => :datetime_select %>
+
+
+  <%= f.actions %>
+<% end %>

@@ -1,0 +1,82 @@
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :class => "form-control") do |f| %>
+  <%= devise_error_messages! %>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="input-group text-center">
+        <span class="input-group-addon left">
+          <%= radio_button_tag(:type, "Volunteer") %>
+        </span>
+        <%= label_tag(:type_volunteer, "I want to volunteer", :class => "form-control") %>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="input-group text-center">
+        <span class="input-group-addon left">
+          <%= radio_button_tag(:type, "Sponsor") %>
+        </span>
+        <%= label_tag(:type_sponsor, "I represent a non-profit", :class => "form-control") %>
+      </div>
+    </div>
+  </div><!-- row -->
+  <div class="row">
+    <br>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="input-group">
+        <span class="input-group-addon left">
+          <%= f.label :email%>
+        </span>
+        <%= f.email_field :email, :autofocus => true, :class => "form-control" %>
+      </div>
+      <br>
+      <% if @user.password_required? %>
+        <div class="input-group">
+          <span class="input-group-addon left">
+            <%= f.label :password %>
+          </span>
+          <%= f.password_field :password, :class => "form-control" %>
+        </div>
+        <br>
+        <div class="input-group">
+          <span class="input-group-addon left">
+            <%= f.label :password_confirmation, "Confirm" %>
+          </span>
+          <%= f.password_field :password_confirmation, :class => "form-control" %>
+        </div>
+        <br>
+      <% end %>
+    </div>
+  <div class="col-xs-6">
+  <div class="input-group">
+    <span class="input-group-addon left">
+      <%= f.label :name %>
+    </span>
+    <%= f.text_field :name, :class => "form-control" %>
+  </div><br>
+  <div class="input-group">
+    <span class="input-group-addon left">
+      <%= f.label :position_title, "Position" %>
+    </span>
+    <%= f.text_field :position_title, :class => "form-control" %>
+  </div><br>
+  <div class="input-group" id="work-place">
+  <span class="input-group-addon left">
+    <%= f.label :company, "Work Place" %>
+  </span>
+  <%= f.text_field :company, :class => "form-control" %>
+  </div>
+  </div>
+  </div><!-- row -->
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <%= f.submit "Sign up" %> or <%= link_to "sign in", new_user_session_path %> with a password.
+    </div>
+  </div><!-- row -->
+<% end %>
+<script>
+
+
+</script>
+

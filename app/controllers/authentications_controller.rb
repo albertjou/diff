@@ -3,6 +3,7 @@ class AuthenticationsController < ApplicationController
   # GET /authentications.json
   def index
     @authentications = current_user.authentications if current_user
+    @user = User.new
   end
 
   # POST /authentications
