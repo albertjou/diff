@@ -21,7 +21,6 @@
 #  position_title         :string(255)
 #  profile_picture        :string(255)
 #  company_id             :integer
-#  non_profit_id          :integer
 #
 
 class Sponsor < User
@@ -32,7 +31,7 @@ class Sponsor < User
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :linkedIn_profile, :mobile, :name, :non_profit_id, :position_title, :profile_picture
+  attr_accessible :linkedIn_profile, :mobile, :name, :company_id, :position_title, :profile_picture
 
   belongs_to :non_profit
   has_many :tasks

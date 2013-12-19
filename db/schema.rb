@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131218003100) do
+ActiveRecord::Schema.define(:version => 20131218232716) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -29,19 +29,20 @@ ActiveRecord::Schema.define(:version => 20131218003100) do
   end
 
   create_table "companies", :force => true do |t|
+    t.string   "name"
     t.string   "logo"
     t.string   "sector"
-    t.string   "name"
-    t.string   "linkedIn_profile"
-    t.integer  "hours_contributed"
+    t.integer  "hours"
+    t.string   "website"
+    t.string   "phone"
     t.text     "description"
-    t.string   "street_address"
+    t.text     "mission"
     t.string   "secondary_address"
+    t.string   "street_address"
     t.string   "city"
     t.string   "postcode"
     t.string   "country"
-    t.string   "website"
-    t.string   "phone"
+    t.string   "type"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
@@ -60,23 +61,6 @@ ActiveRecord::Schema.define(:version => 20131218003100) do
   create_table "competencies_volunteers", :id => false, :force => true do |t|
     t.integer "competency_id"
     t.integer "volunteer_id"
-  end
-
-  create_table "non_profits", :force => true do |t|
-    t.string   "logo"
-    t.text     "mission"
-    t.string   "sector"
-    t.string   "website"
-    t.string   "phone"
-    t.string   "street_address"
-    t.string   "secondary_address"
-    t.string   "city"
-    t.string   "postcode"
-    t.string   "country"
-    t.string   "name"
-    t.string   "linkedIn_profile"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
   end
 
   create_table "tasks", :force => true do |t|
@@ -123,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20131218003100) do
     t.string   "position_title"
     t.string   "profile_picture"
     t.integer  "company_id"
-    t.integer  "non_profit_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

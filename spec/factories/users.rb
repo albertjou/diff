@@ -21,7 +21,6 @@
 #  position_title         :string(255)
 #  profile_picture        :string(255)
 #  company_id             :integer
-#  non_profit_id          :integer
 #
 
 # # Read about factories at https://github.com/thoughtbot/factory_girl

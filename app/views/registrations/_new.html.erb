@@ -28,7 +28,7 @@
         <span class="input-group-addon left">
           <%= f.label :email%>
         </span>
-        <%= f.email_field :email, :autofocus => true, :class => "form-control" %>
+        <%= f.email_field :email, :autofocus => true, :class => "form-control", :id => "email-input" %>
       </div>
       <br>
       <% if @user.password_required? %>
@@ -63,9 +63,9 @@
   </div><br>
   <div class="input-group" id="work-place">
   <span class="input-group-addon left">
-    <%= f.label :company, "Work Place" %>
+    <%= label_tag :company, "Work Place" %>
   </span>
-  <%= f.text_field :company, :class => "form-control" %>
+  <%= text_field_tag :company, nil, :class => "form-control" %>
   </div>
   </div>
   </div><!-- row -->
@@ -75,8 +75,4 @@
     </div>
   </div><!-- row -->
 <% end %>
-<script>
-
-
-</script>
 

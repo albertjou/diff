@@ -26,7 +26,7 @@ FactoryGirl.define do
   factory :volunteer do |f|
     f.name { Faker::Name.name }
     f.email { Faker::Internet.email }
-    f.company { FactoryGirl.create :company }
+    f.company { FactoryGirl.create :for_profit }
     f.tasks { Task.all.sample(4) }
     f.competencies { Competency.all.sample(5) }
     f.mobile { Faker::PhoneNumberAU.phone_number }

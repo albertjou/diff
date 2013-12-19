@@ -1,13 +1,52 @@
 <%= semantic_form_for @task do |f| %>
-  <%= f.input :name, :required => true%>
-  <%= f.input :category, :as => :select, :collection => ["Websites IT & Software", "Mobile", "Writing", "Design", "Data Entry", "Product Sourcing & Manufacturing", "Sales & Marketing", "Accounting", "Legal", "Custom"], :required => true %>
-  <%= f.input :volunteer_size %>
-  <%= f.input :secondary_address %>
-  <%= f.input :street_address, :required => true %>
-  <%= f.input :city, :required => true %>
-  <%= f.input :country, :required => true %>
-  <%= f.input :scheduled, :required => true, :as => :datetime_select %>
+  <div class="col-xs-4 task-left-panel">
+    <div class="row">
+      <div class="col-xs-12">
+      <%= f.input :name, :required => true, :label => "Task name" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+      <%= f.input :category, :as => :select, :collection => ["Websites IT & Software", "Mobile", "Writing", "Design", "Data Entry", "Product Sourcing & Manufacturing", "Sales & Marketing", "Accounting", "Legal", "Custom"], :required => true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+          <%= f.input :secondary_address %>
+          <%= f.input :street_address, :required => true %>
+          <%= f.input :city, :required => true %>
+          <%= f.input :postcode, :required => true %>
+          <%= f.input :country, :required => true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :volunteer_size, :label => "Number of volunteers required" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :scheduled, :required => true, :as => :date_select, :start_year => Time.now.year %>
+      </div>
+    </div>
+  </div><!-- col-xs-4 -->
+  <div class="col-xs-8 main-panel">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :competencies, :input_html => { :data => {:role => "tagsinput" }, :value => ""} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :description %>
 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.actions %>
+      </div>
+    </div>
+  </div>
 
-  <%= f.actions %>
 <% end %>

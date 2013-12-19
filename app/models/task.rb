@@ -23,22 +23,17 @@
 #
 
 class Task < ActiveRecord::Base
-  attr_accessible :category, :confidentiality, :description, :non_profit_id, :sponsor_id, :volunteer_size, :status
+  attr_accessible :category, :confidentiality, :description, :volunteer_size, :status, :name, :secondary_address, :street_address, :city, :postcode, :country, :scheduled, :competency_ids
 
   belongs_to :sponsor
   has_and_belongs_to_many :volunteers
   has_and_belongs_to_many :competencies
-  has_one :charity, :through => :sponsor
+  has_one :non_profit, :through => :sponsor
 
 
   # Geocoding
   geocoded_by :street_address
   after_validation :geocode, :if => :street_address_changed?
 
-  def complete_address
-    "#{self.street_address}
-    #{self.city} #{self.postcode}
-    #{self.country}"
-  end
 
 end

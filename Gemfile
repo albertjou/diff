@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 
@@ -12,8 +12,10 @@ gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 gem 'omniauth-facebook'
-gem 'formtastic'
+gem 'formtastic', '~> 2.2'
+gem 'formtastic-bootstrap'
 gem 'country_select'
+gem 'jsonify-rails'
 
 #Possible future features
 # gem 'mailboxer' # Private messaging

@@ -96,6 +96,8 @@ GEM
     ffaker (1.22.1)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    formtastic-bootstrap (2.1.3)
+      formtastic (~> 2.2)
     geocoder (1.1.9)
     gherkin (2.12.2)
       multi_json (~> 1.3)
@@ -266,7 +268,8 @@ DEPENDENCIES
   devise
   factory_girl_rails
   ffaker
-  formtastic
+  formtastic (~> 2.2)
+  formtastic-bootstrap
   geocoder
   jquery-rails
   meta_request

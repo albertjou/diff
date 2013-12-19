@@ -21,7 +21,6 @@
 #  position_title         :string(255)
 #  profile_picture        :string(255)
 #  company_id             :integer
-#  non_profit_id          :integer
 #
 
 class User < ActiveRecord::Base
@@ -32,10 +31,11 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :type
-  attr_accessible :position_title, :name, :mobile, :profile_picture, :non_proit_id, :company_id
+  attr_accessible :position_title, :name, :mobile, :profile_picture, :company
   # attr_accessible :title, :body
 
   has_many :authentications
+  belongs_to :company
 
   def apply_omniauth(omniauth)
     self.email = omniauth['info']['email'] if email.blank?

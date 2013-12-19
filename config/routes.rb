@@ -7,4 +7,7 @@ Diff::Application.routes.draw do
   resources :tasks, except: :destroy
 
   match "/auth/:provider/callback" => "authentications#create"
+
+  match '/company/:domain' => 'pages#domain'
+  match '/competencies' => 'pages#competencies'
 end

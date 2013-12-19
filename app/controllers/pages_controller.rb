@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home # Shows all the tasks
-    @tasks = Task.all
+    @tasks = Task.order("id DESC").all
     @non_profits = NonProfit.all
     @companies = Company.all
   end
@@ -12,6 +12,11 @@ class PagesController < ApplicationController
 
   def sign_up
 
+  end
+
+  def domain
+    binding.pry
+    domain = params[:domain]
   end
 
 end
