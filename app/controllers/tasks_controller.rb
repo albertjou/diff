@@ -4,7 +4,6 @@ def index # Shows all the tasks
 end
 
 def create # Create a task, only for sponsors
-  binding.pry
   @task = Task.create(params[:task])
   current_user.tasks << @task
   redirect_to task_path(@task)

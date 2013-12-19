@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
-//= require_tree .
+//= require bootstrap-tagsinput
+//= require typeahead.min
+//= require task

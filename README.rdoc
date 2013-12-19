@@ -1,3 +1,69 @@
 #Do It For Free
 
 WDI Sydney 2013 September Final Project
+
+
+Here's some attempts at the autocomplete tagger
+
+$('.bootstrap-tagsinput input').typeahead({
+  valueKey: 'text',
+  prefetch: '/competencies'
+}).bind('typeahead:selected', $.proxy(function (obj, datum) {
+  this.tagsinput('add', datum);
+  this.tagsinput('input').typeahead('setQuery', '');
+}, $('.bootstrap-tagsinput input')));
+
+$('.bootstrap-tagsinput input').typeahead({
+  valueKey: 'text',
+  prefetch: '/competencies'
+}).bind('typeahead:selected', $.proxy(function (obj, datum) {
+  this.tagsinput('add', datum);
+  this.tagsinput('input').typeahead('setQuery', '');
+}, $('.bootstrap-tagsinput input')));
+
+$('input').tagsinput({
+  itemValue: 'value',
+  itemText: 'text'
+}).typeahead({
+  valueKey: 'text',
+  prefetch: '/competencies'
+}).bind('typeahead:selected', $.proxy(function (obj, datum) {
+  this.tagsinput('add', datum);
+  this.tagsinput('input').typeahead('setQuery', '');
+}, $('input')));
+
+$('input').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
+  typeahead({
+  valueKey: 'text',
+  prefetch: 'competencies'
+}).bind('typeahead:selected', $.proxy(function (obj, datum) {
+  this.tagsinput('add', datum);
+  this.tagsinput('input').typeahead('setQuery', '');
+}, $('input')));
+});
+
+$('.bootstrap-tagsinput input').tagsinput({
+  itemValue: 'value',
+  itemText: 'text'
+}).typeahead({
+  valueKey: 'text',
+  prefetch: 'competencies'
+}).bind('typeahead:selected', $.proxy(function (obj, datum) {
+  this.tagsinput('add', datum);
+  this.tagsinput('input').typeahead('setQuery', '');
+}, $('.bootstrap-tagsinput input')));
+
+$('.bootstrap-tagsinput input').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
+  typeahead({
+  valueKey: 'text',
+  prefetch: 'competencies'
+})
+.bind('typeahead:selected', $.proxy(function (obj, datum) {
+  this.tagsinput('add', datum);
+  this.tagsinput('input').typeahead('setQuery', '');
+}, $('.bootstrap-tagsinput input')))
+});
