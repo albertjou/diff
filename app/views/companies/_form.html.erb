@@ -1,0 +1,54 @@
+<%= semantic_form_for @company do |f| %>
+  <div class="col-xs-4 task-left-panel">
+    <div class="row">
+      <div class="col-xs-12">
+      <%= f.input :name, :required => true, :label => "Company Name" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+      <% if current_user.type == "Volunteer" %>
+        <%= f.input :sector, :as => :select, :collection => "Agriculture, Music, Arts and Crafts, Photography, Graphic Design, Museums and Institutions, Performaing Arts, Fine Arts, Motion Pictures and Films, Design, Architecture & Planning, Civil Engineering, Building Materials, Construction, Import and Export, Wholesale, Wine and Spirits, Luxury Goods and Jewelry, Retail, Furniture, Consumer Goods, Consumer Electronics, Food Production, Supermarkets, Cosmetics, Apparel and Fashion, Sporting Goods, Staffing and Recruiting, Professional Training & Coaching, Security and Investigations, Outsourcing/Offshoring, Facilities Services, Business Supplies and Equipment, Human Resources, Marketing and Advertising, Public Relations and Communications, Market Research, Management Consulting, E-Learning, Research, Education Management, Primary/Secondary Education, Higher Education, Venture Capital and Private Equity, Capital Markets, Commercial Real Estate, Banking, Insurance, Investment Management, Investment Banking, Real Estate, Financial Services, Accounting, Government, Computer and Network Security, Computer Hardware, Computer Software, Computer Networking, Internet, Telecommunications, Information Technology and Services, Alternative Dispute Resolution, Law Practice, Legal Services, Manufacturing, Writing and Editing, Online Media, Media Production, Animation, Broadcast Media, Printing, Publishing, Newspapers, Medical, Food & Beverage, Hospitality, Restaurants, Events Services, Translation and Localisation, Information Services, Environmental Services, Transportation".split(", "), :required => true %>
+      <% else %>
+        <%= f.input :sector, :as => :select, :collection => ["Aged Care and Seniors", "Animals and Birds", "Arts and Culture", "Asthma/Respiratory", "Blindness and Deafness", "Cancer", "Children", "Community Support Services", "Conservation and Environment", "Diabetes", "Disabilities", "Drug and Alcohol Carers", "Education and Training", "Families", "Foundations/Philanthropy", "Gay/Lesbian/Bi/Transgender and Intersex (GLBTI)", "Health - General", "Health - Hospitals & Medical Centres", "Heart Disease", "HIV/AIDS", "Homelessness and Affordable Housing", "Humanitarian", "Indigenous", "Law, Justice and Human Rights", "Libraries and Museums", "Mental Health", "Overseas Aid and Development", "Religion and Religious Groups", "Research", "Rural", "Safety, Rescue and First Aid", "Science and Technology", "Social Enterprise", "Sport and Recreation", "Veterans and Ex-Service Men/Women", "Welfare", "Women", "Youth / Young People"], :required => true %>
+      <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :logo %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :website %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :phone %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+          <%= f.input :secondary_address %>
+          <%= f.input :street_address, :required => true %>
+          <%= f.input :city, :required => true %>
+          <%= f.input :postcode, :required => true %>
+          <%= f.input :country, :required => true %>
+      </div>
+    </div>
+  </div><!-- col-xs-4 -->
+  <div class="col-xs-8 main-panel">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :mission %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :description %>
+      </div>
+    </div>
+  <%= f.actions %>
+<% end %>

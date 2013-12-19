@@ -16,7 +16,6 @@ class PagesController < ApplicationController
   end
 
   def domain
-    binding.pry
     domain = params[:domain]
   end
 
@@ -31,6 +30,9 @@ class PagesController < ApplicationController
     end
     a = json.compile!
     render json: a
+  end
+
+  def company
   end
 
 end

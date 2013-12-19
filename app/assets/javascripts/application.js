@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
-//= require bootstrap-tagsinput
+//= require bootstrap-tagsinput.min
+//= require chart.min
 //= require typeahead.min
 //= require task

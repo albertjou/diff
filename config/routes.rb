@@ -5,9 +5,11 @@ Diff::Application.routes.draw do
 
   root :to => "pages#home"
   resources :tasks, except: :destroy
+  resources :companies
 
   match "/auth/:provider/callback" => "authentications#create"
 
-  match '/company/:domain' => 'pages#domain'
+  match '/api/domain/:domain' => 'pages#domain'
   match '/competencies' => 'pages#competencies'
+  match '/api/company/:company' => 'pages#company'
 end

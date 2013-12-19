@@ -1,27 +1,20 @@
 <div class="row">
   <div class="col-xs-12 see-me">
-    <h1>This is the homepage</h1>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  <canvas id="myChart" width="400" height="400"></canvas>
   </div>
 </div><!-- /row -->
 <div class="row">
-  <div class="banner col-xs-12">
-
+  <div class="spacer col-xs-12">
 
   </div>
 </div><!-- /row -->
 
 <div class="row">
-  <div class="non-profits col-md-3 well">
-    <h1 class="text-center main-heading">Non Profits</h1>
+  <div class="non-profits col-md-3 well well-left">
     <div class="view-window">
+      <div class="floating-heading">
+      <h1 class="text-center main-heading">Non Profits</h1>
+    </div>
       <%= render partial: "business", collection: @non_profits, as: :business %>
     </div>
     <div class="create-new non-profit col-md-3">
@@ -51,9 +44,11 @@
     </div>
   </div><!-- tasks -->
 
-  <div class="corporates col-md-3 well">
-    <h1 class="text-center main-heading">Companies</h1>
+  <div class="corporates col-md-3 well-right">
     <div class="view-window">
+      <div class="floating-heading">
+        <h1 class="text-center main-heading">Companies</h1>
+      </div>
       <%= render partial: "business", collection:@companies, as: :business %>
     </div>
     <div class="create-new corporate see-me">
