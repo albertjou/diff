@@ -3,6 +3,8 @@ class PagesController < ApplicationController
     @tasks = Task.order("id DESC").all
     @non_profits = NonProfit.all
     @companies = Company.all
+    @competencies = []
+    Competency.all.each { |x| @competencies << x if (x.tasks.length > 0) }
   end
 
   def sign_in

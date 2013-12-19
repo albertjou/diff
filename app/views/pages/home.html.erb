@@ -30,11 +30,24 @@
   </div><!-- non-profits -->
 
   <div class="tasks col-md-6">
-    <h1 class="text-center main-heading">Tasks</h1>
-    <div class="view-window">
-      <%= render partial: "tasks/singletask", collection: @tasks, as: :task %>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <% @competencies.each do |competency| %>
+          <a href="/filter/<%= competency.name %>"class="btn btn-success"><h4><%= competency.name %><span class="badge pull-right"><%= competency.tasks.length %></span></h4></a>
+        <% end %>
+      </div>
     </div>
-    <div class="create-new task see-me">
+    <div class="row">
+      <div class="col-xs-12">
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="view-window">
+          <%= render partial: "tasks/singletask", collection: @tasks, as: :task %>
+        </div>
+      </div>
     </div>
   </div><!-- tasks -->
 

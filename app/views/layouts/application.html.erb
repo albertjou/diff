@@ -25,7 +25,10 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <li>Welcome, <%= current_user.name %></li>
+              <li><a href="#"><%= current_user.name %></a></li>
+              <% if current_user.type == "Sponsor" %>
+                <li><a href="#">Sponsor</a></li>
+              <% end %>
               <li><%= button_to('Edit User', edit_user_registration_path, :class => "btn btn-success", :method => :get) %></li>
               <li class="divider"></li>
               <li><%= button_to('Logout', destroy_user_session_path, :confirm => 'Are you sure?', :class => "btn btn-info", :method => :delete) %></li>
