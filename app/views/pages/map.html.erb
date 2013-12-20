@@ -1,0 +1,43 @@
+<div class="row">
+  <br>
+  <br>
+  <br>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div id="map_canvas"></div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+  var map;
+
+  var display_map = function (lat, long, zoom) {
+    canvas = $('#map_canvas')[0];
+
+    if (! canvas) {
+      return; // I QUIT
+    }
+
+    var mapOptions = {
+      center: new google.maps.LatLng(lat, long),
+      zoom: zoom,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(canvas, mapOptions);
+  };
+
+  var add_marker = function (lat, long, title) {
+    var latlng = new google.maps.LatLng(lat, long);
+    var marker = new google.maps.Marker({position: latlng, map: map, title: title});
+  };
+  console.log(<%= "#{@task.latitude}, #{@task.longitude}" %>);
+  display_map(<%= @task.latitude %>, <%= @task.longitude %>, 13);
+  add_marker(<%= @task.latitude %>, <%= @task.longitude %>, "<%= @task.name %>");
+  <% @nearbytasks.each do |task| %>
+    add_marker(<%= task.latitude %>, <%= task.longitude %>, "<%= task.name %>");
+  <% end %>
+});
+
+</script>

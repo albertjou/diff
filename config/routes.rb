@@ -12,4 +12,5 @@ Diff::Application.routes.draw do
   match '/api/domain/:domain' => 'pages#domain'
   match '/competencies' => 'pages#competencies'
   match '/api/company/:company' => 'pages#company'
+  match '/maps' => 'pages#map'
 end

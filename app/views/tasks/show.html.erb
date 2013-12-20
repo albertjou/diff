@@ -1,1 +1,44 @@
-<h1>This is the page for an individual task</h1>
+<div class="row show-task">
+  <div class="col-xs-4 task-show well-left">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Category:</h3><br>
+        <h2><%= @task.category %></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+          <h3>Address</h3><br>
+          <%= link_to(image_tag("http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@task.latitude}%2C#{@task.longitude}", :class => "img-responsive"),"http://maps.google.com/maps?&z=100&q=#{@task.street_address.to_s.gsub(" ","+")}", :target => 'new') %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Volunteers Required</h3><br>
+          <h2><%= @task.volunteer_size %><h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3></h3><br>
+          <%= @task.scheduled.strftime("%F") %>
+      </div>
+    </div>
+  </div><!-- col-xs-4 -->
+  <div class="col-xs-8 main-panel">
+    <div class="row">
+      <div class="col-xs-12">
+        <% @task.competencies.each do |competency| %>
+            <h3></h3><br>
+              <%= competency.name %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3></h3><br>
+          <%= @task.description %>
+      </div>
+    </div>
+  </div>
+</div>

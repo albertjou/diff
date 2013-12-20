@@ -18,17 +18,24 @@ def new
 end
 
 def edit
-
+  @task = Task.find(params[:id])
 end
 
 
 def show # Shows a single task
-
+  @task = Task.find(params[:id])
 end
 
 
 def update
-
+  @task = Task.find(params[:id])
+  if @task.sponsor == current_user
+      if @task.update_attributes(params[:task])
+        redirect_to root_path
+      else
+        render :new
+      end
+  end
 end
 
 

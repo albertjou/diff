@@ -70,9 +70,39 @@
   </div>
   </div><!-- row -->
   <div class="row">
-    <div class="col-xs-12 text-center">
+    <div class="col-xs-6 text-center">
+      <div id="logo-result">
+      </div>
+      <input type="hidden" value="" id="hidden-logo" name="hidden-logo">
+    </div>
+    <div class="col-xs-6 text-center">
       <%= f.submit "Sign up" %> or <%= link_to "sign in", new_user_session_path %> with a password.
     </div>
   </div><!-- row -->
 <% end %>
+
+<script type="text/javascript">
+
+  jQuery('#email-input').on('focusout', function(event) {
+    var email = $(this).val();
+    var domain = email.match(/([\w\.]+)$/)[0];
+    jQuery("#logo-result").html("<img src='http://scrapelogo.com/wp-content/uploads/2012/12/ajax-loader.gif' style='vertical-align:middle'> We haven't scraped this domain before. It may take a minute. If a logo is found, next time it'll be just a few miliseconds.");
+    jQuery.ajax({
+      url: "http://data.scrapelogo.com/"+domain+"/logo",
+      type: "GET"
+
+    })
+    .complete(function(jqXHR, textStatus) {
+      console.log("fetched")
+      if (jqXHR.status!=404) {
+        jQuery('#logo-result').html("<p><img src='http://data.scrapelogo.com/"+ domain +"/nlogo'></p><p><a href='http://data.scrapelogo.com/report.php?domain="+ domain +"' style='font-size:9pt'>Report incorrect logo</a> | <a href='always-up-to-date?domain="+ domain +"' style='font-size:9pt'>Suggest a better logo</a></p>");
+        jQuery('#hidden-logo').val("http://data.scrapelogo.com/"+ domain +"/nlogo");
+      }
+      else {
+       jQuery('#logo-result').html("<span style='color:red'>No logo found :( Please <a href='always-up-to-date?domain="+ domain +"'>suggest a logo</a></span>");
+      }
+    });
+  });
+
+</script>
 

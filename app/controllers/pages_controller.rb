@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home # Shows all the tasks
     @tasks = Task.order("id DESC").all
     @non_profits = NonProfit.all
-    @companies = Company.all
+    @for_profits = ForProfit.all
     @competencies = []
     Competency.all.each { |x| @competencies << x if (x.tasks.length > 0) }
   end
@@ -33,6 +33,12 @@ class PagesController < ApplicationController
   end
 
   def company
+  end
+
+  def map
+    @task = Task.where("latitude is not null").last()
+    @nearbytasks = @task.nearbys(20)
+    binding.pry
   end
 
 end

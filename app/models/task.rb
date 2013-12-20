@@ -32,8 +32,10 @@ class Task < ActiveRecord::Base
 
 
   # Geocoding
-  geocoded_by :street_address
+  geocoded_by :full_address
   after_validation :geocode, :if => :street_address_changed?
 
-
+  def full_address
+    [street_address, city, country].compact.join(', ')
+  end
 end
